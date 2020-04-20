@@ -47,7 +47,7 @@
   "devDependencies": {
     "jest": "^25.3.0",
     "npm-watch": "^0.6.0",
-    "release-it": "^13.5.1",
+    "release-it": "^13.5.4",
     "ts-jest": "^25.3.1"
   },
   "release-it": {
