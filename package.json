@@ -31,7 +31,7 @@
   "private": true,
   "dependencies": {
     "@types/jest": "^25.1.4",
-    "@types/markdown-it": "0.0.9",
+    "@types/markdown-it": "10.0.0",
     "@types/node": "^13.13.2",
     "dotenv": "^8.2.0",
     "html-minifier": "^4.0.0",
