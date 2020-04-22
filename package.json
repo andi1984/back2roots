@@ -48,7 +48,7 @@
     "jest": "^25.3.0",
     "npm-watch": "^0.6.0",
     "release-it": "^13.5.5",
-    "ts-jest": "^25.3.1"
+    "ts-jest": "^25.4.0"
   },
   "release-it": {
     "github": {
