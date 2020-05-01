@@ -45,7 +45,7 @@
     "typescript": "^3.8.3"
   },
   "devDependencies": {
-    "jest": "^25.3.0",
+    "jest": "^25.5.3",
     "npm-watch": "^0.6.0",
     "release-it": "^13.5.5",
     "ts-jest": "^25.3.1"
