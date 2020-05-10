@@ -42,7 +42,8 @@
     "rss": "^1.2.2",
     "ts-node-dev": "^1.0.0-pre.44",
     "twig": "^1.15.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "yargs": "^15.3.1"
   },
   "devDependencies": {
     "jest": "^25.3.0",
