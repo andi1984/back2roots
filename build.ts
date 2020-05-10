@@ -2,6 +2,8 @@
 export {};
 import { Site } from "./utils/interfaces";
 require("dotenv").config();
+
+const args = require("./utils/args");
 const path = require("path");
 const fs = require("fs");
 const { sync: syncRmRf } = require("rimraf");
@@ -14,7 +16,9 @@ const { sitesSorting } = require("./config/hooks");
 var RSS = require("rss");
 
 // Step 1: Clear output directory
-syncRmRf(DISTRIBUTION_FOLDER);
+if (args.clean) {
+  syncRmRf(DISTRIBUTION_FOLDER);
+}
 
 // Step 2: Create files
 (async () => {
@@ -33,7 +37,7 @@ syncRmRf(DISTRIBUTION_FOLDER);
     language: "en",
     // categories: ["Category 1", "Category 2", "Category 3"],
     pubDate: new Date().toString(),
-    ttl: "60"
+    ttl: "60",
   });
 
   // cache the xml to send to clients
@@ -56,7 +60,7 @@ syncRmRf(DISTRIBUTION_FOLDER);
     feed.item({
       title: site.title,
       description: site.html,
-      url: site.url.href // link to the item
+      url: site.url.href, // link to the item
       // author: "Guest Authors", // optional - defaults to feed author property
       // date: "May 27, 2012" // any format that js Date can parse.
     });

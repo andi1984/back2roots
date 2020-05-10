@@ -37,12 +37,18 @@ The output files are saved to the `dist` directory.
 | base_url |               The base url of the page               |                                    cf. URL in env vars below |
 | meta     | All metadata provided via frontmatter for given site | cf. {title: 'foo', template: 'bar', author: 'Max Mustermann' |
 
+## CLI Options
+
+| Option   | Alias |                                                                                                  Description | Default |
+| -------- | :---: | -----------------------------------------------------------------------------------------------------------: | ------- |
+| --pretty |  --p  | Flag to indicate whether hosting can handle pretty URLs (e.g. `/hello/world` instead of `/hello/world.html`) | false   |
+| --clean  |  --c  |                           Flag to indicate whether distribution folder should be cleaned before every build. | false   |
+
 ## Environment Variables
 
-| Variable    |                                                 Description                                                  |                                       Example |
-| ----------- | :----------------------------------------------------------------------------------------------------------: | --------------------------------------------: |
-| URL         |                                               URL of your page                                               |                  `URL: https://www.google.de` |
-| PRETTY_URLS | Flag to indicate whether hosting can handle pretty urls (e.g. `/hello/world` instead of `/hello/world.html`) | `PRETTY_URLS: 1` (default: not set --> false) |
+| Variable |   Description    |                      Example |
+| -------- | :--------------: | ---------------------------: |
+| URL      | URL of your page | `URL: https://www.google.de` |
 
 ## Configuration
 

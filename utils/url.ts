@@ -2,6 +2,7 @@ import { URL } from 'url';
 
 // https://stackoverflow.com/a/41975448/778340
 export { };
+const args = require('./args');
   
 /**
  * Returns whether URL is absolute or not.
@@ -19,9 +20,7 @@ const isAbsoluteURL = (url: string): Boolean => {
  */
 const generateURL = (link: string): URL => {
   return new URL(
-    Boolean(process.env.PRETTY_URLS) ||
-    isAbsoluteURL(link) ||
-    link.indexOf('.html') !== -1
+    Boolean(args.pretty) || isAbsoluteURL(link) || link.indexOf(".html") !== -1
       ? link
       : `${link}.html`,
     process.env.URL
