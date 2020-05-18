@@ -26,7 +26,6 @@
   },
   "author": "Andreas Sander <mail@andi1984.de>",
   "license": "MIT",
-  "private": true,
   "dependencies": {
     "@types/jest": "^25.2.1",
     "@types/markdown-it": "10.0.1",
