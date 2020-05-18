@@ -2,28 +2,26 @@
   "name": "back2roots",
   "version": "0.2.0",
   "description": "",
-  "main": "server.js",
+  "main": "build/build.js",
+  "files": [
+    "build/**/*.js"
+  ],
   "engines": {
     "node": "12.x"
   },
-  "watch": {
-    "start": {
-      "patterns": [
-        "templates",
-        "md"
-      ],
-      "extensions": "twig,md"
-    }
+  "keywords": [
+    "cli"
+  ],
+  "bin": {
+    "back2roots": "build/cli.js"
   },
   "scripts": {
     "test": "jest",
     "tsc": "tsc",
-    "dev": "npx concurrently \"npx http-server dist\" \"npm run watch-content\" \"npm run watch\"",
-    "watch-content": "npm-watch",
     "watch": "ts-node-dev --respawn --transpileOnly ./build.ts",
-    "build": "tsc && node ./build/build.js",
-    "assets": "echo \"Run your asset generation script here putting assets into the dist folder\"",
-    "start": "npm run build && npm run assets",
+    "build": "tsc",
+    "start": "./build/cli.js",
+    "prepare": "npm run build",
     "release": "release-it"
   },
   "author": "Andreas Sander <mail@andi1984.de>",
