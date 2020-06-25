@@ -28,7 +28,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@types/jest": "^25.2.1",
+    "@types/jest": "^26.0.3",
     "@types/markdown-it": "10.0.1",
     "@types/node": "^13.13.5",
     "dotenv": "^8.2.0",
