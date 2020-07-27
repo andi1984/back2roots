@@ -38,7 +38,7 @@
     "markdown-it-replace-link": "^1.0.1",
     "rimraf": "^3.0.2",
     "rss": "^1.2.2",
-    "ts-node-dev": "^1.0.0-pre.44",
+    "ts-node-dev": "^1.0.0-pre.56",
     "twig": "^1.15.1",
     "typescript": "^3.8.3",
     "yargs": "^15.3.1"
