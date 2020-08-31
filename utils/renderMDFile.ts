@@ -30,6 +30,7 @@ module.exports = async (site: Site, sites: Site[]) => {
       sites,
       content: site.html,
       meta: site.meta,
+      url: site.url,
       base_url: process.env.URL
     },
     (err: Error, html: string) => {

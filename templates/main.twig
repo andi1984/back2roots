@@ -9,6 +9,7 @@
             <a href="{{base_url}}">Home</a>
         </header>
         <main>
+            <h1>Current URL is {{url}}</h1>
             {{ content }}
             {% for site in sites %}
                 <li><a href="{{site.url.href}}">{{site.title}}</a></li>
