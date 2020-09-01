@@ -1,16 +1,16 @@
-import { URL } from 'url';
+import { URL } from "url";
 
 // https://stackoverflow.com/a/41975448/778340
-export { };
-const args = require('./args');
-  
+export {};
+const args = require("./args");
+
 /**
  * Returns whether URL is absolute or not.
- * @param {string} url 
+ * @param {string} url
  * @returns {boolean}
  */
 const isAbsoluteURL = (url: string): Boolean => {
-  return url.indexOf('://') > 0 || url.indexOf('//') === 0;
+  return url.indexOf("://") > 0 || url.indexOf("//") === 0;
 };
 
 /**
@@ -21,7 +21,7 @@ const isAbsoluteURL = (url: string): Boolean => {
 const generateURL = (link: string): URL => {
   return new URL(
     Boolean(args.pretty) || isAbsoluteURL(link) || link.indexOf(".html") !== -1
-      ? link
+      ? link.replace(/\/index$/g, "")
       : `${link}.html`,
     process.env.URL
   );

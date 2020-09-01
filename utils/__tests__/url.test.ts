@@ -1,5 +1,7 @@
 const { isAbsoluteURL, generateURL } = require('../url');
 
+jest.mock('../args');
+
 describe('isAbsoluteURL', () => {
   test('it fails if url is not given', () => {
     expect(() => isAbsoluteURL()).toThrow();
@@ -33,5 +35,10 @@ describe('generateURL', () => {
         expect(generateURL('http://www.google.de/foo?myquery=2').href).toBe(
           'http://www.google.de/foo?myquery=2'
         );
+    })
+
+    test('Removes /index on prettyfied mode', () => {
+      process.env.URL = 'http://foo.de';
+      expect(generateURL('subfolder/index').href).toBe('http://foo.de/subfolder')
     })
 })
