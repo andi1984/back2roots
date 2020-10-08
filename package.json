@@ -22,7 +22,8 @@
     "build": "tsc",
     "start": "./build/cli.js",
     "prepare": "npm run build",
-    "release": "release-it"
+    "release": "release-it",
+    "min": "nodemin"
   },
   "author": "Andreas Sander <mail@andi1984.de>",
   "license": "MIT",
