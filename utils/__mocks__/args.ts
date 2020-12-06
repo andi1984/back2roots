@@ -1,1 +1,1 @@
-module.exports = { _: [], p: true, pretty: true };
+module.exports = { _: [] };
