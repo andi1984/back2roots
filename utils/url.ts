@@ -2,7 +2,6 @@ import { URL } from "url";
 
 // https://stackoverflow.com/a/41975448/778340
 export {};
-const args = require("./args");
 
 /**
  * Returns whether URL is absolute or not.
@@ -19,12 +18,16 @@ const isAbsoluteURL = (url: string): Boolean => {
  * @returns {URL}
  */
 const generateURL = (link: string): URL => {
-  return new URL(
-    Boolean(args.pretty) || isAbsoluteURL(link) || link.indexOf(".html") !== -1
-      ? link.replace(/\/index$/g, "")
-      : `${link}.html`,
-    process.env.URL
-  );
+  if (isAbsoluteURL(link)) {
+    return new URL(link);
+  }
+
+  if (process.env.PRETTY === "true" && link.endsWith("index")) {
+    // In case we have support for pretty urls and link ends with index, we omit the last URL segment
+    return new URL(link.replace(/\/index$/g, ""), process.env.URL);
+  }
+
+  return new URL(`${link}.html`, process.env.URL);
 };
 
 module.exports = {

@@ -1,44 +1,73 @@
-const { isAbsoluteURL, generateURL } = require('../url');
+const { isAbsoluteURL, generateURL } = require("../url");
 
-jest.mock('../args');
+jest.mock("../args");
 
-describe('isAbsoluteURL', () => {
-  test('it fails if url is not given', () => {
+describe("isAbsoluteURL", () => {
+  test("it fails if url is not given", () => {
     expect(() => isAbsoluteURL()).toThrow();
   });
 
-  test('it returns true if url is absolute', () => {
-    expect(isAbsoluteURL('https://www.google.com')).toBe(true);
+  test("it returns true if url is absolute", () => {
+    expect(isAbsoluteURL("https://www.google.com")).toBe(true);
   });
 
-  test('it returns false if url is relative', () => {
-    expect(isAbsoluteURL('../foo')).toBe(false);
+  test("it returns false if url is relative", () => {
+    expect(isAbsoluteURL("../foo")).toBe(false);
   });
 });
 
+describe("generateURL", () => {
+  // Restore original env vars
+  // NOTE: https://stackoverflow.com/a/48042799/778340
+  const OLD_ENV = process.env;
 
-describe('generateURL', () => {
-    test('it fails if url is not given or not valid', () => {
-        expect(() => generateURL()).toThrow();
-    })
+  beforeEach(() => {
+    jest.resetModules(); // most important - it clears the cache
+    process.env = { ...OLD_ENV }; // make a copy
+  });
 
-    test('pathname', () => {
-        expect(generateURL('http://www.google.de').pathname).toBe('/');
-        expect(generateURL('http://www.google.de/foo').pathname).toBe('/foo');
-    })
+  afterAll(() => {
+    process.env = OLD_ENV; // restore old env
+  });
 
-    test('href', () => {
-        expect(generateURL('http://www.google.de').href).toBe(
-          'http://www.google.de/'
-        );
+  test("it fails if url is not given or not valid", () => {
+    expect(() => generateURL()).toThrow();
+  });
 
-        expect(generateURL('http://www.google.de/foo?myquery=2').href).toBe(
-          'http://www.google.de/foo?myquery=2'
-        );
-    })
+  test("pathname", () => {
+    expect(generateURL("http://www.google.de").pathname).toBe("/");
+    expect(generateURL("http://www.google.de/foo").pathname).toBe("/foo");
+  });
 
-    test('Removes /index on prettyfied mode', () => {
-      process.env.URL = 'http://foo.de';
-      expect(generateURL('subfolder/index').href).toBe('http://foo.de/subfolder')
-    })
-})
+  test("href", () => {
+    expect(generateURL("http://www.google.de").href).toBe(
+      "http://www.google.de/"
+    );
+
+    expect(generateURL("http://www.google.de/foo?myquery=2").href).toBe(
+      "http://www.google.de/foo?myquery=2"
+    );
+  });
+
+  test("Removes /index on pretty mode", () => {
+    process.env.PRETTY = "true";
+    process.env.URL = "http://foo.de";
+    expect(generateURL("subfolder/index").href).toBe("http://foo.de/subfolder");
+  });
+
+  test("Does not remove /index.html on non-pretty mode", () => {
+    process.env.PRETTY = "false";
+    process.env.URL = "http://foo.de";
+    expect(generateURL("subfolder/index").href).toBe(
+      "http://foo.de/subfolder/index.html"
+    );
+  });
+
+  test("Does not remove trailing segments other than index on pretty mode", () => {
+    process.env.PRETTY = "true";
+    process.env.URL = "http://foo.de";
+    expect(generateURL("subfolder/impressum").href).toBe(
+      "http://foo.de/subfolder/impressum.html"
+    );
+  });
+});

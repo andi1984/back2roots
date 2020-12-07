@@ -40,16 +40,16 @@ The output files are saved to the `dist` directory.
 
 ## CLI Options
 
-| Option   | Alias |                                                                                                  Description | Default |
-| -------- | :---: | -----------------------------------------------------------------------------------------------------------: | ------- |
-| --pretty |  --p  | Flag to indicate whether hosting can handle pretty URLs (e.g. `/hello/world` instead of `/hello/world.html`) | false   |
-| --clean  |  --c  |                           Flag to indicate whether distribution folder should be cleaned before every build. | false   |
+| Option  | Alias |                                                                        Description | Default |
+| ------- | :---: | ---------------------------------------------------------------------------------: | ------- |
+| --clean |  --c  | Flag to indicate whether distribution folder should be cleaned before every build. | false   |
 
 ## Environment Variables
 
-| Variable |   Description    |                      Example |
-| -------- | :--------------: | ---------------------------: |
-| URL      | URL of your page | `URL: https://www.google.de` |
+| Variable |                                                Description                                                 |                      Example |
+| -------- | :--------------------------------------------------------------------------------------------------------: | ---------------------------: |
+| URL      |                                              URL of your page                                              | `URL: https://www.google.de` |
+| PRETTY   | indicate whether hosting can handle pretty URLs (e.g. `/hello/world` instead of `/hello/world/index.html`) |               `PRETTY: true` |
 
 ## Configuration
 
