@@ -2,7 +2,6 @@ import { URL } from "url";
 
 // https://stackoverflow.com/a/41975448/778340
 export {};
-const args = require("./args");
 
 /**
  * Returns whether URL is absolute or not.
