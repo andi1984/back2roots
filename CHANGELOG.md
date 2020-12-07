@@ -1,5 +1,24 @@
 # Changelog
 
+## [v0.8.0](https://github.com/andi1984/back2roots/tree/v0.8.0) (2020-12-07)
+
+[Full Changelog](https://github.com/andi1984/back2roots/compare/v0.7.0...v0.8.0)
+
+**Fixed bugs:**
+
+- Fix --pretty option to make it independent of Netlify [\#224](https://github.com/andi1984/back2roots/issues/224)
+
+**Merged pull requests:**
+
+- fix\(pretty-urls\): Limiting pretty URLs for trailing index URL segment [\#226](https://github.com/andi1984/back2roots/pull/226) ([andi1984](https://github.com/andi1984))
+- build\(deps\): bump yargs from 16.1.0 to 16.2.0 [\#225](https://github.com/andi1984/back2roots/pull/225) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- build\(deps\): bump @types/jest from 26.0.15 to 26.0.16 [\#223](https://github.com/andi1984/back2roots/pull/223) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- build\(deps\): bump twig from 1.15.2 to 1.15.4 [\#222](https://github.com/andi1984/back2roots/pull/222) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- build\(deps-dev\): bump release-it from 14.2.1 to 14.2.2 [\#221](https://github.com/andi1984/back2roots/pull/221) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- build\(deps\): bump @types/node from 14.14.7 to 14.14.10 [\#220](https://github.com/andi1984/back2roots/pull/220) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- build\(deps\): bump typescript from 4.0.5 to 4.1.2 [\#219](https://github.com/andi1984/back2roots/pull/219) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- build\(deps\): bump @types/markdown-it from 10.0.2 to 10.0.3 [\#215](https://github.com/andi1984/back2roots/pull/215) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## [v0.7.0](https://github.com/andi1984/back2roots/tree/v0.7.0) (2020-11-10)
 
 [Full Changelog](https://github.com/andi1984/back2roots/compare/v0.6.1...v0.7.0)
