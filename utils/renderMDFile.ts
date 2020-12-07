@@ -22,7 +22,7 @@ module.exports = async (site: Site, sites: Site[]) => {
   if (!fs.existsSync(site.template)) {
     throw new Error(`Template ${site.template} does not exist.`);
   }
-  
+
   Twig.renderFile(
     site.template,
     {
@@ -31,10 +31,10 @@ module.exports = async (site: Site, sites: Site[]) => {
       content: site.html,
       meta: site.meta,
       url: site.url,
-      base_url: process.env.URL
+      base_url: process.env.URL,
     },
     (err: Error, html: string) => {
-      return new Promise((resolve, reject) => {
+      return new Promise<void>((resolve, reject) => {
         if (err) {
           reject(err);
         }
@@ -48,7 +48,7 @@ module.exports = async (site: Site, sites: Site[]) => {
         // Create folder in case it doesn't exist already.
         if (!fs.existsSync(path.dirname(outputFilePath))) {
           fs.mkdirSync(path.dirname(outputFilePath), {
-            recursive: true
+            recursive: true,
           });
         }
 
@@ -56,7 +56,7 @@ module.exports = async (site: Site, sites: Site[]) => {
         fs.writeFile(
           outputFilePath,
           minify(html, {
-            collapseWhitespace: true
+            collapseWhitespace: true,
           }),
           (writeErr: Error) => {
             if (writeErr) {
