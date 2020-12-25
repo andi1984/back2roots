@@ -10,6 +10,7 @@ const minify = require("html-minifier").minify;
 const Twig = require("twig");
 
 const DISTRIBUTION_FOLDER = require("./constants").DISTRIBUTION_FOLDER;
+const copyAssets = require("./copyAssets");
 
 module.exports = async (site: Site, sites: Site[]) => {
   if (!fs.existsSync(DISTRIBUTION_FOLDER)) {
@@ -45,12 +46,19 @@ module.exports = async (site: Site, sites: Site[]) => {
           `${site.file.name}.html`
         );
 
+        const targetFolder = path.dirname(outputFilePath);
+
         // Create folder in case it doesn't exist already.
-        if (!fs.existsSync(path.dirname(outputFilePath))) {
-          fs.mkdirSync(path.dirname(outputFilePath), {
+        if (!fs.existsSync(targetFolder)) {
+          fs.mkdirSync(targetFolder, {
             recursive: true,
           });
         }
+
+        const srcFolder = path.dirname(site.file.abs);
+
+        // Copy any other assets from src to targetFolder
+        copyAssets(srcFolder, targetFolder);
 
         // Write the file into the folder
         fs.writeFile(
