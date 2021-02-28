@@ -12,7 +12,7 @@ const MarkdownIt = require("markdown-it"),
   md = (frontmatterCallback: Function) =>
     new MarkdownIt({
       html: true,
-      replaceLink: generateURL
+      replaceLink: (link: string) => generateURL(link).toString(),
     })
       .use(require("markdown-it-replace-link"))
       .use(require("markdown-it-front-matter"), frontmatterCallback);
@@ -27,7 +27,7 @@ const getSiteObject = (absoluteFilePath: string): Site => {
   // Meta-object
   const DEFAULT_META = {
     title: fileName, // Set default page title to the file name
-    template: "main.twig" // Set default template to render
+    template: "main.twig", // Set default template to render
   };
   let meta: Meta = DEFAULT_META;
 
@@ -51,12 +51,12 @@ const getSiteObject = (absoluteFilePath: string): Site => {
     file: {
       name: fileName,
       abs: absoluteFilePath,
-      rel: relativeFileFolderToMDFolder
+      rel: relativeFileFolderToMDFolder,
     },
     url: generateURL(
       path.relative(MARKDOWN_FOLDER, absoluteFilePath).replace(".md", "")
     ),
-    meta
+    meta,
   };
 };
 

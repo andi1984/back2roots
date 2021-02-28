@@ -47,6 +47,10 @@ describe("generateURL", () => {
     expect(generateURL("http://www.google.de/foo?myquery=2").href).toBe(
       "http://www.google.de/foo?myquery=2"
     );
+
+    expect(generateURL("http://www.google.de/foo?myquery=2&foo=2").href).toBe(
+      "http://www.google.de/foo?myquery=2&foo=2"
+    );
   });
 
   test("Removes /index on pretty mode", () => {
