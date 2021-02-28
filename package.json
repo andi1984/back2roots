@@ -18,9 +18,9 @@
   "scripts": {
     "test": "jest",
     "tsc": "tsc",
-    "watch": "ts-node-dev --respawn --transpileOnly ./build.ts",
+    "watch": "tsc -w",
     "build": "tsc",
-    "start": "./build/cli.js",
+    "start": "node build/cli.js",
     "prepare": "npm run build",
     "release": "release-it",
     "min": "nodemin"
@@ -39,7 +39,6 @@
     "markdown-it-replace-link": "^1.1.0",
     "rimraf": "^3.0.2",
     "rss": "^1.2.2",
-    "ts-node-dev": "^1.0.0-pre.56",
     "twig": "^1.15.1",
     "typescript": "^4.0.3",
     "yargs": "^16.1.0"
