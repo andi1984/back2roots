@@ -38,6 +38,7 @@ module.exports = async (site: Site, sites: Site[]) => {
       return new Promise<void>((resolve, reject) => {
         if (err) {
           reject(err);
+          return;
         }
 
         const outputFilePath = path.join(
